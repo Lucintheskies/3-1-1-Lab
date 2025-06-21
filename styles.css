@@ -1,19 +1,40 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #221d45;
+    font-family: Verdana, sans-serif;
+    background-color: #373350;
     color: #e1e2ec;
+    position: relative;
+    overflow-x: hidden;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    max-width: 1000px;
-    padding-left: 25px;
-    margin: auto;
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
     border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 2s infinite alternate;
+    }
+
+@keyframes twinkle{
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+header, footer {
+    text-align: center;
+    margin: 1rem 0;
 }
 
 h1, h2 {
@@ -28,44 +49,68 @@ p {
 
 .gallery {
     display: flex;
-    flex-direction: row; /* Always columns */
-    gap: 5.5rem;
-    justify-content: center;
-    max-width: 1000px;
-    margin: 2rem auto;
+    flex-direction: row;
     flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 2rem auto;
 }
 
-.image-item {
+.image-container {
     flex: 1 1 300px;
     max-width: 300px;
     margin: 10px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    background: #0b054763;
+    border-radius: 16px;
+    padding: 1rem;
+    transition: transform 0.3s ease;
 }
 
-.image-item img {
+.image-container img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 160px;
+    border-radius: 16px;
     display: block;
+    margin-bottom: 0.5rem;
+     transform: scale(1.1);
+    z-index: 1;
+}
+
+.accesorio {
+    display: block;
+    color: #ffd700;
+    margin-top: 0.5rem;
+    font-size: 0.9em;
+}
+@media (max-width: 700px) {
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-container {
+        max-width: 90vw;
+    }
+    .accesorio {
+        display: none;
+    }
 }
 
 @media (min-width: 500px) {
     body {
         background-color: #214269;
     }
-
     h1 {
         font-size: 2.5em;
     }
-
     h2 {
         font-size: 2em;
     }
-
     p {
         font-size: 18px;
     }
