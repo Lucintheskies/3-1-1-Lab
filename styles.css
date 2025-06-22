@@ -46,6 +46,35 @@ p {
     line-height: 1.5;
     margin: 10px 0;
 }
+.navbar {
+    background-color: #2a255a;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    gap: 2rem;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    color: #86b0dd;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+
+.navbar a:hover {
+    color: #ffd700;
+}
 
 .gallery {
     display: flex;
@@ -68,8 +97,9 @@ p {
     background: #0b054763;
     border-radius: 16px;
     padding: 1rem;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
+
 
 .image-container img {
     width: 100%;
@@ -79,7 +109,12 @@ p {
     display: block;
     margin-bottom: 0.5rem;
      transform: scale(1.1);
+    z-index: 1;}
+    .image-container:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
     z-index: 1;
+
 }
 
 .accesorio {
